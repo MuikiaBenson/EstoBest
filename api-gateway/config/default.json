@@ -1,0 +1,10 @@
+{
+  "services": {
+    "users": "http://user-service:5000",
+    "properties": "http://property-service:5001",
+    "notifications": "http://notification-service:5002",
+    "payments": "http://payment-service:5003",
+    "messages": "http://communication-service:5004",
+    "maintenance": "http://maintenance-service:5005"
+  }
+}

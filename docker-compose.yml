@@ -1,0 +1,88 @@
+version: '3.8'
+services:
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8000:8000"
+    depends_on:
+      - user-service
+      - property-service
+      - notification-service
+      - payment-service
+      - communication-service
+      - maintenance-service
+
+  user-service:
+    build: ./user-service
+    env_file:
+      - ./user-service/.env
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+
+  property-service:
+    build: ./property-service
+    env_file:
+      - ./property-service/.env
+    ports:
+      - "5001:5000"
+    depends_on:
+      - postgres
+
+  notification-service:
+    build: ./notification-service
+    env_file:
+      - ./notification-service/.env
+    ports:
+      - "5002:5000"
+    depends_on:
+      - postgres
+
+  payment-service:
+    build: ./payment-service
+    env_file:
+      - ./payment-service/.env
+    ports:
+      - "5003:5000"
+    depends_on:
+      - postgres
+
+  communication-service:
+    build: ./communication-service
+    env_file:
+      - ./communication-service/.env
+    ports:
+      - "5004:5000"
+    depends_on:
+      - postgres
+
+  maintenance-service:
+    build: ./maintenance-service
+    env_file:
+      - ./maintenance-service/.env
+    ports:
+      - "5005:5000"
+    depends_on:
+      - postgres
+
+  web-client:
+    build: ./web-client
+    ports:
+      - "80:80"
+
+  mobile-client:
+    build: ./mobile-client
+    ports:
+      - "8081:8081"
+
+  postgres:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: bennymuigai
+      POSTGRES_PASSWORD: BennyMuigai@20.
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
