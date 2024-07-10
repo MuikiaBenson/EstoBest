@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import UserService from '../services/UserService';
-import { useNavigate } from 'react-router-dom'; // For navigation
-
+import { useNavigate } from 'react-router-dom';
 
 const SignInPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
-
   const navigate = useNavigate();
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,9 +14,9 @@ const SignInPage = () => {
     try {
       const response = await UserService.loginUser(credentials);
       console.log('Login successful', response);
-      navigate('/homepage'); // Redirect to hompegae
+      navigate('/homepage'); // Redirect to homepage on successful login
     } catch (error) {
-      alert('Login failed');
+      setErrorMessage('Invalid email or password'); // Set error message for failed login
       console.error('Login failed', error);
     }
   };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import coverImage from '../EB/EBcover.jpeg'; // Adjust the path accordingly
+import { FaGithub, FaTwitter } from "react-icons/fa6";
 
 function LandingPage() {
   const scrollToFeatures = () => {
@@ -96,11 +97,21 @@ function LandingPage() {
 
       {/* Footer */}
       <footer className="bg-gray-800 py-4 px-6 text-center text-white mt-auto">
-        <div className="flex justify-center space-x-6">
-          <a href="/privacy" className="text-gray-400 hover:text-white">Privacy Policy</a>
-          <a href="/terms" className="text-gray-400 hover:text-white">Terms of Service</a>
-          <a href="/help" className="text-gray-400 hover:text-white">Help Center</a>
-          <span className="text-gray-400">&copy; 2024 Property Management App</span>
+        <div className="flex justify-center space-x-6 mb-2">
+          <a href="/privacy" className="text-blue-400 hover:text-white">Privacy Policy</a>
+          <a href="/terms" className="text-blue-400 hover:text-white">Terms of Service</a>
+          <a href="/help" className="text-blue-400 hover:text-white">Help Center</a>
+        </div>
+        <div className="flex justify-end">
+          <a href="https://github.com/MuikiaBenson/EstoBest" className="text-gray-400 hover:text-white mr-4">
+            <FaGithub />
+          </a>
+          <a href="https://x.com/BensonMuikia" className="text-gray-400 hover:text-white">
+            <FaTwitter />
+          </a>
+        </div>
+        <div className="text-gray-400 text-sm mt-2">
+          &copy; 2024 Property Management App
         </div>
       </footer>
     </div>
