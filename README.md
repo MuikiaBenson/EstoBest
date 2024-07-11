@@ -4,7 +4,7 @@
 
 EstoBest is a comprehensive property management system designed to streamline operations for property managers, landlords, and tenants. It provides a centralized platform for managing properties, handling maintenance requests, processing payments, and facilitating communication between all parties involved.
 
-- **[Deployed Site](https://MuikiaBenson.github.io/EstoBest)**: Visit the deployed EstoBest application.
+- **[Deployed landing page](https://668e6ed18be1e104823a7ea7--tiny-starburst-55e268.netlify.app/)**: Visit the deployed EstoBest application.
 - **[Final Project Blog Article](https://www.notion.so/106d266b7c8e420b867e8fff6f1a7c09?v=2ab41ffae7334103ae3ab610e00526fb)**: Read more about the project and its development journey.
 - **[Author's LinkedIn](https://www.linkedin.com/in/benson-muigai-03905b173?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B1GLM5qMCQRCpRUH%2Bnw9hGA%3D%3D)**: Connect with Benson Muigai on LinkedIn.
 
