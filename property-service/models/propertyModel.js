@@ -1,5 +1,3 @@
-// models/propertyModel.js
-
 const mongoose = require('mongoose');
 
 const propertySchema = new mongoose.Schema({
@@ -8,7 +6,9 @@ const propertySchema = new mongoose.Schema({
   price: { type: Number, required: true },
   location: { type: String, required: true },
   status: { type: String, enum: ['available', 'occupied', 'maintenance'], default: 'available' },
-  // Additional fields as per requirements
+  ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  managerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  tenantId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 }, { timestamps: true });
 
 const Property = mongoose.model('Property', propertySchema);

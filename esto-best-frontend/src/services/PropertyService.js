@@ -1,15 +1,16 @@
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_PROPERTY_SERVICE_URL;
+//const API_URL = process.env.REACT_APP_PROPERTY_SERVICE_URL;
+const API_URL = "http://localhost:3001/api/properties"
 
 const PropertyService = {
   getAllProperties: async () => {
     const response = await axios.get(`${API_URL}`);
-    console.log(response);
     return response.data;
   },
   getPropertyById: async (id) => {
     const response = await axios.get(`${API_URL}/properties/${id}`);
+    console.log(response)
     return response.data;
   },
   addProperty: async (propertyData) => {

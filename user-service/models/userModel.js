@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, required: true, unique: true, trim: true },
@@ -42,4 +43,4 @@ function isValidDate(value) {
 
 const User = mongoose.model('User', userSchema);
 
-module.exports = User;
+module.exports = User; // Ensure User model is exported

@@ -44,7 +44,7 @@ const HomePage = () => {
                 <nav className="bg-white w-1/5 py-4 px-6 shadow-md">
                     <ul className="space-y-4">
                         <li><a href="/dashboard" className="text-blue-600 hover:underline">Dashboard</a></li>
-                        <li><a href="/properties" className="text-blue-600 hover:underline">Properties</a></li>
+                        <li><a href="/propertylist" className="text-blue-600 hover:underline">Properties</a></li>
                         <li><a href="/maintenance" className="text-blue-600 hover:underline">Maintenance</a></li>
                         <li><a href="/notifications" className="text-blue-600 hover:underline">Notifications</a></li>
                         <li><a href="/payments" className="text-blue-600 hover:underline">Payments</a></li>

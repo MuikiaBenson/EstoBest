@@ -15,6 +15,7 @@ import ContactPage from './pages/ContactPage';
 import SignInPage from './pages/SignInPage';
 
 import './App.css';
+import PropertyList from './pages/PropertyList';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/homepage" element={<HomePage />} />
         <Route path="/properties" element={<PropertyPage />} />
+        <Route path="/propertylist" element={<PropertyList />} />
         <Route path="/maintenance" element={<MaintenancePage />} />
         <Route path="/notifications" element={<NotificationPage />} />
         <Route path="/communications" element={<CommunicationPage />} />

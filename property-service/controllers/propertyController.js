@@ -1,6 +1,5 @@
-// controllers/propertyController.js
-
 const Property = require('../models/propertyModel');
+const axios = require('axios');
 
 const PropertyController = {
   getAllProperties: async (req, res) => {
@@ -26,15 +25,28 @@ const PropertyController = {
   },
 
   createProperty: async (req, res) => {
+    const { propertyName, description, price, location, status, ownerId, managerId, tenantId } = req.body;
     const property = new Property({
-      propertyName: req.body.propertyName,
-      description: req.body.description,
-      price: req.body.price,
-      location: req.body.location,
-      status: req.body.status || 'available', // Default to 'available' if not provided
+      propertyName,
+      description,
+      price,
+      location,
+      status,
+      ownerId,
+      managerId,
+      tenantId
     });
 
     try {
+      // Fetch owner, manager, and tenant from user-service
+      const owner = await axios.get(`http://localhost:3008/api/users/${ownerId}`);
+      const manager = managerId ? await axios.get(`http://localhost:3008/api/users/${managerId}`) : null;
+      const tenant = tenantId ? await axios.get(`http://localhost:3008/api/users/${tenantId}`) : null;
+
+      if (!owner.data || (managerId && !manager.data) || (tenantId && !tenant.data)) {
+        return res.status(404).json({ message: 'Owner, manager, or tenant not found' });
+      }
+
       const newProperty = await property.save();
       res.status(201).json(newProperty);
     } catch (err) {
@@ -43,8 +55,13 @@ const PropertyController = {
   },
 
   updateProperty: async (req, res) => {
+    const { propertyName, description, price, location, status, ownerId, managerId, tenantId } = req.body;
     try {
-      const updatedProperty = await Property.findByIdAndUpdate(req.params.propertyId, req.body, { new: true });
+      const updatedProperty = await Property.findByIdAndUpdate(
+        req.params.propertyId,
+        { propertyName, description, price, location, status, ownerId, managerId, tenantId },
+        { new: true }
+      );
       if (updatedProperty) {
         res.json(updatedProperty);
       } else {
